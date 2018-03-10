@@ -1,0 +1,37 @@
+{
+  "name": "egg-web",
+  "version": "0.0.1",
+  "description": "",
+  "eggPlugin": {
+    "name": "web"
+  },
+  "keywords": [
+    "egg",
+    "egg-plugin",
+    "egg-web"
+  ],
+  "dependencies": {
+  },
+  "devDependencies": {
+    "egg": "2.2.1",
+    "egg-bin": "4.3.5",
+    "eslint": "3.19.0",
+    "eslint-config-airbnb": "14.1.0"
+  },
+  "engines": {
+    "node": ">=8.9.0"
+  },
+  "scripts": {
+    "start": "egg-bin dev"
+  },
+  "files": [
+    "app.js",
+    "agent.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hbrls/egg-web.git"
+  },
+  "author": "hbrls<shuaizhexu@gmail.com>",
+  "license": "MIT"
+}
