@@ -29,4 +29,10 @@ module.exports = app => {
 };
 ```
 
+## HttpIn
+```javascript
+// app.js
+app.config.coreMiddleware.unshift('httpIn');
+```
+
 ## [MIT License](LICENSE)
