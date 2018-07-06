@@ -10,7 +10,7 @@ module.exports = options => {
     // console.log(ctx.request);
     if (env !== 'local') {
       const { method, url } = ctx.request;
-      ctx.logger.info(`[HttpIn] ${method} ${url}`);
+      ctx.logger.info(`[HttpIn] ${method} ${url}`, '[egg-web/m/httpIn:13]');
     }
     // [HttpIn]
     // requestContentType

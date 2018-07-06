@@ -11,6 +11,9 @@ module.exports = app => {
       // const e = new TypeError('type-error-demo', 'view.js', 11);
       // ctx.logger.error(e);
 
+      ctx.logger.info('Hello Format %j', { name: 'albert' });
+      ctx.service.foo.bar();
+
       ctx.status = 200;
       ctx.body = {
         code: 0,

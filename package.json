@@ -10,16 +10,19 @@
     "egg-plugin",
     "egg-web"
   ],
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "egg": "2.2.1",
     "egg-bin": "4.3.5",
     "eslint": "3.19.0",
     "eslint-config-airbnb": "14.1.0",
+    "gulp": "3.9.1",
+    "gulp-replace": "1.0.0",
     "le_node": "1.7.1"
   },
   "peerDependencies": {
+    "gulp": "*",
+    "gulp-replace": "*",
     "le_node": "*"
   },
   "engines": {

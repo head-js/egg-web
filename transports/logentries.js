@@ -7,15 +7,23 @@ let logger = null;
 
 class LogentriesTransport extends Transport {
   log(level, args, meta) {
-    const [message] = args;
+    const { date, hostname } = meta;
+    const { app: { name, config: { env, cluster: { listen: { port } }, props } } } = this.options;
+
+    const datetime = date ? date.replace(',', '.') : '';
+    const machine = `${name}|${hostname}|${port}`;
+    const [ linenoKey ] = Object.keys(args).sort().slice(-1);
+    const lineno = args[linenoKey];
+
+    function formatter({ level, date, pid, message }) {
+      return `${datetime} [${machine}] [${pid}] ${lineno} [${level}] - ${message.replace(lineno, '')}`;
+    }
+
+    const message = super.log(level, args, { ...meta, formatter });
     // console.log(message);
     // console.log(meta);
     // console.log(this.options);
 
-    const { hostname, pid } = meta;
-    const date = meta.date ? meta.date.replace(',', '.') : '';
-
-    const { app: { name, config: { env, cluster: { listen: { port } }, props } } } = this.options;
     // console.log(name);
     // console.log(config);
     // console.log(config.env);
@@ -25,9 +33,6 @@ class LogentriesTransport extends Transport {
     if (env === 'local') {
       return;
     }
-
-    const formatted = `${date} [${name}|${hostname}|${port}] [${pid}] [todo.stack] [${level}] [todo.line] - ${message}`;
-    // console.log(formatted);
 
     if (!logger) {
       logger = new Logger({
@@ -39,9 +44,9 @@ class LogentriesTransport extends Transport {
 
     const lvl = level.toLowerCase();
     if (logger[lvl]) {
-      logger[lvl](formatted);
+      logger[lvl](message);
     } else {
-      logger.info(formatted);
+      logger.info(message);
     }
   }
 }
