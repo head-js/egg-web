@@ -1,40 +1,32 @@
-egg-mq
+egg-web
 ==
 
 ## Install
 
 ```bash
-$ npm i egg-mq --save
+$ npm i egg-web --save
 ```
 
 ## Usage
 
-```js
+```javascript
 // {app_root}/config/plugin.js
-exports.mq = {
+exports.web = {
   enable: true,
-  package: 'egg-mq',
+  package: 'egg-web',
 };
 ```
 
-## Configuration
+## Logentries
 
-```js
-// {app_root}/config/config.default.js
-exports.mq = {
+```javascript
+// app.js
+const LogentriesTransport = require('egg-web/transports/logentries.js');
+
+module.exports = app => {
+  app.getLogger('logger').set('logentries', new LogentriesTransport({ level: 'INFO', app }));
+  app.getLogger('errorLogger').set('logentries', new LogentriesTransport({ level: 'ERROR', app }));
 };
 ```
 
-see [config/config.default.js](config/config.default.js) for more detail.
-
-## Example
-
-<!-- example here -->
-
-## Questions & Suggestions
-
-Please open an issue [here](https://github.com/eggjs/egg/issues).
-
-## License
-
-[MIT](LICENSE)
+## [MIT License](LICENSE)

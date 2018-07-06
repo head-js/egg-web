@@ -1,6 +1,6 @@
 {
   "name": "egg-web",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "eggPlugin": {
     "name": "web"
@@ -16,7 +16,11 @@
     "egg": "2.2.1",
     "egg-bin": "4.3.5",
     "eslint": "3.19.0",
-    "eslint-config-airbnb": "14.1.0"
+    "eslint-config-airbnb": "14.1.0",
+    "le_node": "1.7.1"
+  },
+  "peerDependencies": {
+    "le_node": "*"
   },
   "engines": {
     "node": ">=8.9.0"
