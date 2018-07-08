@@ -2,18 +2,28 @@ FROM node:8.9.1-slim
 
 EXPOSE 7001
 
-RUN mkdir -p /var/app && mkdir -p /var/app0
-WORKDIR /var/app
+RUN \
+  mkdir -p /var/app && \
+  mkdir -p /var/app-build && \
+  mkdir -p /var/app-run
 
-# npm install
-RUN buildDeps='git make g++' && \
-  apt-get update && apt-get install -y $buildDeps && \
-  cd /var/app0 && \
-  npm install egg@2.2.1 egg-view-nunjucks@2.1.3 egg-sequelize@3.1.0 pg@7.3.0 pg-hstore@2.3.2 && \
-  npm install egg-web@0.0.4 vanilla.js@0.1.4 && \
+RUN \
+  buildDeps='git make g++' && \
+  apt-get update && apt-get install -y $buildDeps
+
+COPY package-build.json /var/app-build/package.json
+RUN cd /var/app-build && npm install
+
+COPY package-run.json /var/app-run/package.json
+RUN cd /var/app-run && npm install
+
+RUN \
+  buildDeps='git make g++' && \
   npm cache clean --force && \
   apt-get purge -y --auto-remove $buildDeps && \
   rm -rf /var/lib/apt/lists/*
+
+WORKDIR /var/app
 
 ENV NODE_ENV production
 

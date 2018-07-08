@@ -1,0 +1,13 @@
+{
+  "name": "egg-web-build",
+  "version": "0.0.4",
+  "description": "egg-web-build",
+  "dependencies": {
+    "egg-web": "0.0.4",
+    "gulp": "3.9.1",
+    "gulp-replace": "1.0.0"
+  },
+  "engines": {
+    "node": ">=8.9.0"
+  }
+}
