@@ -1,6 +1,6 @@
 {
   "name": "egg-web",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "",
   "eggPlugin": {
     "name": "web"
@@ -31,10 +31,6 @@
   "scripts": {
     "start": "egg-bin dev"
   },
-  "files": [
-    "app.js",
-    "agent.js"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hbrls/egg-web.git"

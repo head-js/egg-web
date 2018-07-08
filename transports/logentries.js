@@ -7,6 +7,10 @@ let logger = null;
 
 class LogentriesTransport extends Transport {
   log(level, args, meta) {
+    if (!meta) { // FIXME: egg-sequelize
+      return;
+    }
+
     const { date, hostname } = meta;
     const { app: { name, config: { env, cluster: { listen: { port } }, props } } } = this.options;
 

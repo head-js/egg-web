@@ -10,7 +10,7 @@ $ npm i egg-web --save
 ## Usage
 
 ```javascript
-// {app_root}/config/plugin.js
+// config/plugin.js
 exports.web = {
   enable: true,
   package: 'egg-web',
@@ -29,10 +29,8 @@ module.exports = app => {
 };
 ```
 
-## HttpIn
-```javascript
-// app.js
-app.config.coreMiddleware.unshift('httpIn');
-```
+## Build-In
+
+1. HttpIn logging
 
 ## [MIT License](LICENSE)
