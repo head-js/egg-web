@@ -5,6 +5,7 @@ egg-web
 
 ```bash
 $ npm i egg-web --save
+$ docker pull hbrls/eggjs:latest
 ```
 
 ## Usage
