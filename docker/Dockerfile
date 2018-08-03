@@ -12,10 +12,10 @@ RUN \
   apt-get update && apt-get install -y $buildDeps
 
 COPY package-build.json /var/app-build/package.json
-RUN cd /var/app-build && npm install
+RUN cd /var/app-build && npm install --no-package-lock
 
 COPY package-run.json /var/app-run/package.json
-RUN cd /var/app-run && npm install
+RUN cd /var/app-run && npm install --no-package-lock
 
 RUN \
   buildDeps='git make g++' && \
