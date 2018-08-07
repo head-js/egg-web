@@ -2,6 +2,7 @@ app/controller/
 app/service/
 app/router.js
 config/
+docker/
 logs/
 node_modules/
 run/
