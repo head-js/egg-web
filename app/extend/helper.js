@@ -1,10 +1,10 @@
 module.exports = {
   rsrc(action, filename, devHost = '0.0.0.0', devPort = '3001') {
-    const { env } = this.app.config;
+    const { webenv } = this.app.config;
     const ext = filename.split('.').slice(-1).pop();
 
     if (action === 'dist') {
-      if (env === 'local') {
+      if (webenv === 'local') {
         if (ext === 'css') {
           return `<!-- 开发环境的 css 都是通过 webpack-dev-server 热加载的 -->`;
         } else if (ext === 'js') {

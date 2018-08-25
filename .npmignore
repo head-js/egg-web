@@ -1,7 +1,9 @@
 app/controller/
 app/service/
 app/router.js
-config/
+config/config.default.js
+config/envfile
+config/envfile.example
 docker/
 logs/
 node_modules/
