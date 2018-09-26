@@ -11,7 +11,7 @@ module.exports = merge(WEBPACK, {
     filename: '[name]-[hash:5].js',
     chunkFilename: 'chunk-[name]-[chunkhash:5].js',
     path: path.resolve(PROJECT_PATH, TARGET_DIR),
-    publicPath: '/public/dist',
+    publicPath: '/public/dist/',
   },
 
   module: {
@@ -47,7 +47,7 @@ module.exports = merge(WEBPACK, {
       'process.env.NODE_ENV': '"production"',
     }),
     new AssetsPlugin({
-      processOutput: assets => JSON.stringify(assets).replace(/\/public\/dist/ig, ''),
+      processOutput: assets => JSON.stringify(assets).replace(/\/public\/dist\//ig, ''),
     }),
     new UglifyJsPlugin({
       mangle: {
