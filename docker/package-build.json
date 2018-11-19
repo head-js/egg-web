@@ -1,6 +1,6 @@
 {
   "name": "egg-web-build",
-  "version": "0.0.4",
+  "version": "0.1.6",
   "description": "egg-web-build",
   "dependencies": {
     "assets-webpack-plugin": "3.5.1",
@@ -28,7 +28,7 @@
     "postcss-ordered-values": "2.2.3",
     "style-loader": "0.18.2",
     "url-loader": "0.5.9",
-    "vanilla.js": "0.1.6",
+    "vanilla.js": "0.1.7",
     "webpack": "2.7.0",
     "webpack-merge": "4.1.0"
   },
