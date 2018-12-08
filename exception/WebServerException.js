@@ -1,4 +1,4 @@
-module.exports = class WebClientException extends Error {
+module.exports = class WebServerException extends Error {
   constructor(status, code, message, developerMessage) {
     if (!message) {
       message = code;
@@ -8,7 +8,7 @@ module.exports = class WebClientException extends Error {
 
     super(message);
 
-    this.name = 'WebClientException';
+    this.name = 'WebServerException';
     this.status = status;
     this.code = code;
     this.developerMessage = developerMessage;
