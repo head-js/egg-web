@@ -1,5 +1,5 @@
 app/controller/
-app/service/
+app/service/Foo.js
 app/router.js
 config/config.default.js
 config/envfile
