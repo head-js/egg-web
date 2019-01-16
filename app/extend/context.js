@@ -9,4 +9,8 @@ module.exports = {
     }
     return this[LOCAL];
   },
+
+  set local(payload) {
+    this[LOCAL] = Object.assign({}, this[LOCAL], payload);
+  }
 };

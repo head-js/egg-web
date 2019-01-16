@@ -11,6 +11,8 @@ module.exports = class WebClientException extends Error {
     this.name = 'WebClientException';
     this.status = status;
     this.code = code;
-    this.developerMessage = developerMessage;
+    if (developerMessage) {
+      this.developerMessage = developerMessage;
+    }
   }
 }

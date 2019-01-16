@@ -11,6 +11,8 @@ module.exports = class WebServerException extends Error {
     this.name = 'WebServerException';
     this.status = status;
     this.code = code;
-    this.developerMessage = developerMessage;
+    if (developerMessage) {
+      this.developerMessage = developerMessage;
+    }
   }
 }
