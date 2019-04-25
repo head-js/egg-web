@@ -1,4 +1,5 @@
 const LOCAL = Symbol('context#local');
+const DISCOVERY = Symbol('context#discovery');
 
 
 module.exports = {
@@ -12,5 +13,9 @@ module.exports = {
 
   set local(payload) {
     this[LOCAL] = Object.assign({}, this[LOCAL], payload);
-  }
+  },
+
+  get discovery() {
+    return this.app.config.props.discovery;
+  },
 };
