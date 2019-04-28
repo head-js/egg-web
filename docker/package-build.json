@@ -1,6 +1,6 @@
 {
   "name": "egg-web-build",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "egg-web-build",
   "dependencies": {
     "assets-webpack-plugin": "3.5.1",

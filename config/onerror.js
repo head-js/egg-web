@@ -1,4 +1,4 @@
-const REG_API = /^\/([a-z]+-)?api\/.+/;
+const REG_API = /^\/([0-9a-z]+)\/([0-9a-z-]+)?api\/.+/;
 
 
 module.exports = {
