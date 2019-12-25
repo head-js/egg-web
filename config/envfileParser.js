@@ -6,8 +6,8 @@ module.exports = function envfileParser(envfile) {
   lines.forEach(p => {
     if (p) {
       const idx = p.indexOf('=');
-      const k = p.substring(0, idx);
-      const v = p.substring(idx + 1);
+      const k = p.substring(0, idx).trim();
+      const v = p.substring(idx + 1).trim();
       if (k && v) {
         if (k.indexOf('url.') === 0) {
           discovery[k.substring(4)] = v;
