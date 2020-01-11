@@ -18,4 +18,20 @@ module.exports = {
   get discovery() {
     return this.app.config.props.discovery;
   },
+
+  rest(...args) {
+    if (args.length === 1) {
+      const [ data ] = args;
+      this.status = 200;
+      // this.body = { code: 0, message: 'ok', data };
+      this.body = data;
+    } else if (args.length === 2) {
+      const [ status, data ] = args;
+      this.status = status;
+      this.body = data;
+    } else if (args.length === 0) {
+      this.status = 200;
+      this.body = { code: 0, message: 'ok' };
+    }
+  }
 };
