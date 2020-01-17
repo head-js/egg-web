@@ -1,6 +1,6 @@
 {
   "name": "egg-web",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "description": "",
   "eggPlugin": {
     "name": "web"
@@ -10,7 +10,9 @@
     "egg-plugin",
     "egg-web"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "syncrequest": "1.4.7"
+  },
   "devDependencies": {
     "egg": "2.16.0",
     "egg-bin": "4.9.0",

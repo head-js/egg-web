@@ -1,6 +1,6 @@
 {
   "name": "egg-web-build",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "description": "egg-web-build",
   "dependencies": {
     "assets-webpack-plugin": "3.5.1",
@@ -18,7 +18,7 @@
     "classnames": "2.2.5",
     "css-loader": "0.28.4",
     "del": "3.0.0",
-    "egg-web": "0.2.7",
+    "egg-web": "0.2.8",
     "extract-text-webpack-plugin": "2.1.2",
     "file-loader": "0.11.2",
     "gulp": "3.9.1",
