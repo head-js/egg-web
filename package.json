@@ -1,6 +1,6 @@
 {
   "name": "egg-web",
-  "version": "0.2.8",
+  "version": "0.3.0",
   "description": "",
   "eggPlugin": {
     "name": "web"
@@ -14,7 +14,7 @@
     "syncrequest": "1.4.7"
   },
   "devDependencies": {
-    "egg": "2.16.0",
+    "egg": "2.26.0",
     "egg-bin": "4.9.0",
     "eslint": "3.19.0",
     "eslint-config-airbnb": "14.1.0",

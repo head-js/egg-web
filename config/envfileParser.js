@@ -1,3 +1,6 @@
+const REG_DISCOVERY = /^service\.([a-z0-9]+)\.url$/;
+
+
 module.exports = function envfileParser(envfile) {
   const lines = envfile.split('\n');
 
@@ -9,8 +12,9 @@ module.exports = function envfileParser(envfile) {
       const k = p.substring(0, idx).trim();
       const v = p.substring(idx + 1).trim();
       if (k && v) {
-        if (k.indexOf('url.') === 0) {
-          discovery[k.substring(4)] = v;
+        const matches = k.match(REG_DISCOVERY);
+        if (matches) {
+          discovery[matches[1]] = v;
         } else {
           props[k] = v;
         }
