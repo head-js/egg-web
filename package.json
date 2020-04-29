@@ -1,6 +1,6 @@
 {
   "name": "egg-web",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "",
   "eggPlugin": {
     "name": "web"
@@ -14,13 +14,16 @@
     "syncrequest": "1.4.7"
   },
   "devDependencies": {
+    "@eggjs/http-proxy": "1.1.0",
     "egg": "2.26.0",
     "egg-bin": "4.9.0",
     "eslint": "3.19.0",
     "eslint-config-airbnb": "14.1.0",
     "gulp": "3.9.1",
     "gulp-replace": "1.0.0",
-    "le_node": "1.7.1"
+    "jsonwebtoken": "8.4.0",
+    "le_node": "1.7.1",
+    "vanilla.js": "0.2.2"
   },
   "peerDependencies": {
     "gulp": "*",

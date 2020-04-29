@@ -34,4 +34,12 @@ module.exports = app => {
 
 1. HttpIn logging
 
+## Forward
+
+详见 `router.js`
+
+```javascript
+router.all('/free-api/:service/:wildcard+', forward({ service }) => service, ({ wildcard }) => `/api/${wildcard}`));
+```
+
 ## [MIT License](LICENSE)

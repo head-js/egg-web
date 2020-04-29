@@ -4,6 +4,7 @@ app/router.js
 config/config.default.js
 config/envfile
 config/envfile.example
+config/plugin.js
 docker/
 logs/
 node_modules/

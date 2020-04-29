@@ -1,0 +1,3 @@
+service.s1.url=http://127.0.0.1:9001/s1
+service.s2.url=http://127.0.0.1:9001/s2
+service.s3.url=http://127.0.0.1:9001/s3
