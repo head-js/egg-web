@@ -1,5 +1,5 @@
 const merge = require('webpack-merge');
-const { HotModuleReplacementPlugin, NoEmitOnErrorsPlugin } = require('webpack');
+const { HotModuleReplacementPlugin } = require('webpack');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const { WEBPACK, DEV_HOST, DEV_PORT } = require('./config.js');
 
@@ -25,6 +25,11 @@ module.exports = merge(WEBPACK, {
       //   loader: 'eslint-loader',
       //   enforce: 'pre',
       // },
+      // {
+      //   test: /\.(js|jsx)$/,
+      //   exclude: /node_modules/,
+      //   loader: 'babel-loader',
+      // },
       {
         test: /\.(css|scss)/,
         exclude: /node_modules/,
@@ -49,12 +54,13 @@ module.exports = merge(WEBPACK, {
   plugins: [
     new StyleLintPlugin(),
     new HotModuleReplacementPlugin(),
-    new NoEmitOnErrorsPlugin(),
   ],
 
   devServer: {
     host: DEV_HOST,
     port: DEV_PORT,
+    sockPort: DEV_PORT,
+    // contentBase: Path2D.join(PROJECT_PATH, SOURCE_DIR),
     historyApiFallback: true,
     hot: true,
     stats: true,

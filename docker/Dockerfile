@@ -17,15 +17,15 @@ RUN cd /var/app-build && npm install --no-package-lock --no-optional
 COPY package-run.json /var/app-run/package.json
 RUN cd /var/app-run && npm install --no-package-lock --no-optional
 
-
 FROM node:8.16.0-stretch-slim
 COPY --from=builder /var/app /var/app
 COPY --from=builder /var/app-run /var/app-run
 COPY --from=builder /var/app-build /var/app-build
 
-WORKDIR /var/app
+# worker:egg-web
+# WORKDIR /var/app
 
-ENV NODE_ENV production
-ENV EGG_SERVER_ENV prod
+# ENV NODE_ENV production
+# ENV EGG_SERVER_ENV prod
 
-CMD ["/usr/local/bin/node", "/var/app/index.js"]
+# CMD ["/usr/local/bin/node", "/var/app/index.js"]

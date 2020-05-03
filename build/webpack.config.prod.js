@@ -1,8 +1,10 @@
 const path = require('path');
 const merge = require('webpack-merge');
-const { DefinePlugin, optimize: { UglifyJsPlugin } } = require('webpack');
+const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin');
 const AssetsPlugin = require('assets-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const TerserJSPlugin = require('terser-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssestPlugin = require('optimize-css-assets-webpack-plugin');
 const { WEBPACK, NAME, PROJECT_PATH, TARGET_DIR } = require('./config.js');
 
 
@@ -17,50 +19,49 @@ module.exports = merge(WEBPACK, {
   module: {
     rules: [
       {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: [
+          'thread-loader',
+          'babel-loader',
+        ],
+      },
+      {
         test: /\.(css|scss)/,
         exclude: /node_modules/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                minimize: true,
-                modules: true,
-                localIdentName: '[name]-[local]-[hash:5]',
-                safe: true,
-                autoprefixer: {
-                  add: true,
-                },
-                importLoaders: 1,
-              },
-            },
-            'postcss-loader',
-          ],
-        }),
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              localIdentName: '[name]-[local]-[hash:5]',
+              importLoaders: 1,
+            }
+          },
+          'postcss-loader',
+        ]
       },
     ],
   },
 
   plugins: [
-    new DefinePlugin({
-      'process.env.NODE_ENV': '"production"',
-    }),
+    new AntdDayjsWebpackPlugin(),
     new AssetsPlugin({
       processOutput: assets => JSON.stringify(assets).replace(/\/public\/dist\//ig, ''),
     }),
-    new UglifyJsPlugin({
-      mangle: {
-        screw_ie8: true,
-      },
-      compress: {
-        screw_ie8: true,
-        warnings: false,
-      },
-      output: {
-        comments: false,
-      },
+    new MiniCssExtractPlugin({
+      filename: '[name]-[hash:5].css',
+      chunkFilename: 'chunk-[name]-[hash:5].css',
     }),
-    new ExtractTextPlugin('[name]-[hash:5].css'),
   ],
+
+  optimization: {
+    minimizer: [
+      new TerserJSPlugin({
+        sourceMap: false,
+      }),
+      new OptimizeCSSAssestPlugin(),
+    ],
+  },
 });
