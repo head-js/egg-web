@@ -1,6 +1,6 @@
 {
   "name": "egg-web-build",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "egg-web-build",
   "dependencies": {
     "@babel/core": "7.4.5",
@@ -16,7 +16,7 @@
     "babel-plugin-import": "1.11.2",
     "css-loader": "2.1.1",
     "del": "3.0.0",
-    "egg-web": "0.3.3",
+    "egg-web": "0.3.4",
     "file-loader": "3.0.1",
     "gulp": "4.0.2",
     "gulp-replace": "1.0.0",
