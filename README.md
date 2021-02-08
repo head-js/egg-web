@@ -42,4 +42,11 @@ module.exports = app => {
 router.all('/free-api/:service/:wildcard+', forward({ service }) => service, ({ wildcard }) => `/api/${wildcard}`));
 ```
 
+## CHANGELOG
+
+0.4.0 (2021-02-08)
+--
+
+1. 开始向 `midway` 转型，基本框架没有变动，但暂时不保证完全兼容
+
 ## [MIT License](LICENSE)
