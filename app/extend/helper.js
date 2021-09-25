@@ -1,6 +1,6 @@
 module.exports = {
-  rsrc(action, filename, devHost = '0.0.0.0', devPort = '3001') {
-    const { static, env } = this.app.config;
+  rsrc(action, filename = '/', devHost = '0.0.0.0', devPort = '3001') {
+    const { static, env, props } = this.app.config;
     const prefix = static.prefix ? `${static.prefix}rsrc` : '/public/rsrc/';
     const ext = filename.split('.').slice(-1).pop();
 
@@ -26,6 +26,8 @@ module.exports = {
       return `<link rel="stylesheet" href="${prefix}/css/${filename}">`;
     } else if (action === 'js') {
       return `<script src="${prefix}/js/${filename}"></script>`;
+    } else if (action === 'cdn') {
+      return props['web.starter.rsrc.cdn'] || '';
     } else {
       throw new TypeError(`INVALID RSRC ACTION: ${action}`);
     }
